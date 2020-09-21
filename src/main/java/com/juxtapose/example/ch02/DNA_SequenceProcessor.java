@@ -14,28 +14,28 @@ public class DNA_SequenceProcessor implements
 		ItemProcessor<DNA_Sequence, DNA_Sequence> {
 			
     private String dna_pattern  = "AATTCC";
+	private String response ="*";
 	
 	public DNA_Sequence process(DNA_Sequence dnas) throws Exception {
 		
 	
-	StringBuffer pat = new StringBuffer(dna_pattern) ;
+	String pat = dna_pattern ;
 	
-        StringBuffer txt = new StringBuffer(dnas.getDna()) ;
+        String txt = dnas.getDna() ;
 
-        RabinKarp searcher = new RabinKarp(pat.toString());
-        int offset = searcher.search(txt.toString());
+        RabinKarp searcher = new RabinKarp(pat);
+        int offset = searcher.search(txt);
 
         
         // from brute force search method 1
         
-        dnas.setPattern(pat.toString());
+        dnas.setPattern(pat);
         for (int i = 0; i < offset; i++)
-		 txt.insert(i, " ");
+		 response = response + "*";
 			
 						
-		
-       String str = txt.toString();
-		dnas.setPattern(str);
+	if ( response.length() > 1) dnas.setPattern("Pattern match" + pat); 	
+       
 		//System.out.println(dnas.toString());
 		return dnas;
 	}
