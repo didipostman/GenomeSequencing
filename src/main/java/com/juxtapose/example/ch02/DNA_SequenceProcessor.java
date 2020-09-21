@@ -17,28 +17,25 @@ public class DNA_SequenceProcessor implements
 	
 	public DNA_Sequence process(DNA_Sequence dnas) throws Exception {
 		
-		
-		
-		String pat = dna_pattern;
-		
-		
-		
-        String txt = dnas.getDna();
+	
+	String pat = dna_pattern;
+	
+        StringBuffer txt = new StringBuffer(dnas.getDna()) ;
 
         RabinKarp searcher = new RabinKarp(pat);
-        int offset = searcher.search(txt);
+        int offset = searcher.search(txt.toString());
 
-        // print results
-        //StdOut.println("text:    " + txt);
-
+        
         // from brute force search method 1
-        //StdOut.print("pattern: ");
-        for (int i = 0; i < offset; i++){
-			            StdOut.print(" ");
-						dnas.setPattern(pat);
-		}
-        //StdOut.println(pat);
+        
+        dnas.setPattern(pat);
+        for (int i = 0; i < offset; i++)
+		 txt.insert(i, " ");
+			
+						
 		
+       String str = txt.toString();
+		dnas.setDna(str);
 		//System.out.println(dnas.toString());
 		return dnas;
 	}
