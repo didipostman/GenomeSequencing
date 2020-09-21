@@ -33,8 +33,12 @@ public class DNA_SequenceProcessor implements
         for (int i = 0; i < offset; i++)
 		 response = response + "*";
 			
-						
-	if ( response.length() > 1) dnas.setPattern("Pattern match" + pat); 	
+	 					
+	if ( response.length() > 1)  
+		dnas.setPattern("Pattern match : " + pat); 
+	       	
+		else 
+			dnas.setPattern("No Pattern match : " + pat);
        
 		//System.out.println(dnas.toString());
 		return dnas;
