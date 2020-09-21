@@ -32,7 +32,7 @@ public class DNA_SequenceProcessor implements
         //StdOut.println("text:    " + txt);
 
         // from brute force search method 1
-        StdOut.print("pattern: ");
+        //StdOut.print("pattern: ");
         for (int i = 0; i < offset; i++){
 			            StdOut.print(" ");
 						dnas.setPattern(pat);
