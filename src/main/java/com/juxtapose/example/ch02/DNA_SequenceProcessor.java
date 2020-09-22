@@ -29,7 +29,7 @@ public class DNA_SequenceProcessor implements
         
         // from brute force search method 1
         
-        dnas.setPattern(pat);
+        //dnas.setPattern(pat);
         for (int i = 0; i < offset; i++)
 		 response = response + "*";
 			
