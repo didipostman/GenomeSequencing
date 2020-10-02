@@ -23,7 +23,7 @@ public class DNA_SequenceProcessor implements
 	
         String txt = dnas.getDna() ;
 
-        RabinKarp searcher = new RabinKarp(pat);
+        RabinKarp searcher = new RabinKarp.getInstance(pat);
         int offset = searcher.search(txt);
 
         
