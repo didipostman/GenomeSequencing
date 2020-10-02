@@ -89,7 +89,7 @@ public class RabinKarp {
     public static RabinKarp getinstance(String pat){
      
         if ( Single_instance == null) 
-             Single_instance = new RabinKarp(String pat);
+             Single_instance = new RabinKarp( pat);
         return Single_instance
             
     }
