@@ -47,6 +47,8 @@ import java.util.Random;
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  */
 public class RabinKarp {
+    
+    private static RabinKarp Single_instance = null;
     private String pat;      // the pattern  // needed only for Las Vegas
     private long patHash;    // pattern hash value
     private int m;           // pattern length
@@ -60,18 +62,18 @@ public class RabinKarp {
      * @param pattern the pattern string
      * @param R the alphabet size
      */
-    public RabinKarp(char[] pattern, int R) {
+    /*public RabinKarp(char[] pattern, int R) {
         this.pat = String.valueOf(pattern);
         this.R = R;        
         throw new UnsupportedOperationException("Operation not supported yet");
-    }
+    }*/
 
     /**
      * Preprocesses the pattern string.
      *
      * @param pat the pattern string
      */
-    public RabinKarp(String pat) {
+    private RabinKarp(String pat) {
         this.pat = pat;      // save pattern (needed only for Las Vegas)
         R = 256;
         m = pat.length();
@@ -83,6 +85,14 @@ public class RabinKarp {
             RM = (R * RM) % q;
         patHash = hash(pat, m);
     } 
+    
+    public static RabinKarp getinstance(String pat){
+     
+        if ( Single_instance == null) 
+             Single_instance = new RabinKarp(String pat);
+        return Single_instance
+            
+    }
 
     // Compute hash for key[0..m-1]. 
     private long hash(String key, int m) { 
