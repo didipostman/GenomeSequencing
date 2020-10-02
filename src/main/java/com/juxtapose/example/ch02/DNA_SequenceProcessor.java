@@ -4,6 +4,7 @@
 package com.juxtapose.example.ch02;
 
 import org.springframework.batch.item.ItemProcessor;
+import com.juxtapose.example.ch02.RabinKarp;
 
 /**
 
